@@ -1,0 +1,152 @@
+.nav {
+  position: relative;
+}
+
+.burger {
+  display: none;
+  border: none;
+  background-color: var(--color-orange);
+  transition: var(--transition-main);
+  cursor: pointer;
+}
+.burger > svg {
+  width: 32px;
+  height: 32px;
+}
+.burger path {
+  fill: var(--color-white);
+  transition: var(--transition-main);
+}
+.burger:hover path {
+  fill: var(--color-black);
+}
+.burger:active path {
+  fill: var(--color-black);
+}
+
+.navList {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-main);
+}
+.navList.mobileActive {
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.close {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  border: none;
+  background-color: transparent;
+  transition: var(--transition-main);
+  cursor: pointer;
+}
+.close > svg {
+  width: 40px;
+  height: 40px;
+}
+.close > path {
+  fill: var(--color-grey);
+  transition: var(--transition-main);
+}
+.close:hover > path {
+  fill: var(--color-red);
+}
+.close:active > path {
+  fill: var(--color-black);
+}
+
+.navList > menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: var(--transition-main);
+}
+.navList > menu > li {
+  list-style: none;
+}
+.navList > menu > li.hidden {
+  display: none;
+}
+
+.navListItem {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: 3px solid transparent;
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 16px;
+  transition: var(--transition-main);
+}
+.navListItem:hover {
+  color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+.navListItem:active {
+  opacity: 0.5;
+}
+
+/* ADAPTIVE */
+@media (max-width: 1900px) {
+  .navListItem {
+    max-width: 180px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .navList > menu {
+    gap: 16px;
+  }
+
+  .navListItem {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .burger {
+    display: flex;
+  }
+
+  .navList {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    z-index: 1;
+    align-items: flex-start;
+    width: 180px;
+    height: 100vh;
+    padding: 200px 0 64px;
+    background: var(--color-white);
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+    opacity: 0;
+  }
+  .navList > menu {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .navListItem {  
+    width: 100%;
+    justify-content: flex-start;
+    color: var(--color-black);
+    text-align: center;
+  }
+
+  .close {
+    display: block;
+  }
+}
