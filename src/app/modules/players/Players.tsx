@@ -32,9 +32,7 @@ const Players = () => {
       </div>
       <div className={styles.result}>
         {result && <div>
-          <h2>Team 1:</h2>
           {result.team_1.map((player: string, index: number) => <p key={index}>{player}</p>)}
-          <h2>Team 2:</h2>
           {result.team_2.map((player: string, index: number) => <p key={index}>{player}</p>)}
         </div>}
       </div>
